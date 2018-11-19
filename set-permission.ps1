@@ -1,8 +1,8 @@
 #Set variables
-$new_user = "hyva\new-user"
-$copy_user= "hyva\model-user"
+$new_user = "domain\new-user"
+$copy_user= "domain\model-user"
 #set main/start folder
-$main_path = "FolderInitialPath"
+$main_path = "\\FolderInitialPath"
 
 #Search for folder where $copy_user have permission and set to $ACL the path and access properties
 $ACL = Get-ChildItem -Path $main_path -Recurse | where-object {($_.PsIsContainer)}| Get-ACL | Where-Object AccessToString -like "*$copy_user*" | Select-Object Path,Access
